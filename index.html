@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>IASUCCESS Computer Services</title>
+  <meta name="description" content="IASUCCESS — Typing, Printing, Photocopy, Passport Photos, CAC, JAMB, NIN, Computer Training and more." />
+  <meta name="theme-color" content="#1F2937" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide icons -->
+  <script type="module" src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Tailwind custom properties fallback for non-JS environments */
+    :root{
+      --primary-dark: #1F2937; /* deep navy/charcoal */
+      --accent-red: #DC2626;   /* flyer red */
+      --accent-lilac: #9F7AEA; /* a soft lilac to complement */
+      --bg-light: #F7F9FB;
+    }
+
+    /* subtle glass card backdrop */
+    .glass {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(6px);
+    }
+
+    /* nice wave (hero) */
+    .hero-wave{
+      background: linear-gradient(180deg, rgba(31,41,55,0.95) 0%, rgba(34,197,94,0.02) 100%), url('cmp6.jpg') center/cover no-repeat;
+      background-attachment: fixed;
+    }
+
+    /* responsive image containment */
+    .flyer-img{ object-fit: contain; }
+
+    /* Mobile menu toggle */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 40;
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80%;
+      height: 100vh;
+      background: white;
+      z-index: 50;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-nav.active {
+      transform: translateX(0);
+    }
+
+    /* Improve touch targets for mobile */
+    @media (max-width: 768px) {
+      a, button {
+        min-height: 44px;
+        min-width: 44px;
+      }
+
+      .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      h1 { font-size: 1.875rem; }
+      h2 { font-size: 1.5rem; }
+      h3 { font-size: 1.25rem; }
+      
+      .hero-wave {
+        background-attachment: scroll;
+        padding: 2rem 0;
+      }
+
+      .service-card {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 1.5rem; }
+      h2 { font-size: 1.25rem; }
+      
+      .grid {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body class="antialiased text-[var(--primary-dark)] bg-[var(--bg-light)] font-sans">
+
+  <!-- Header -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="Iasuccess logo.jpg" alt="IASUCCESS logo" class="w-12 h-12 rounded-md object-cover shadow-sm" />
+        <div>
+          <h1 class="font-extrabold text-xl" style="color:var(--primary-dark)">IASUCCESS</h1>
+          <p class="text-xs font-semibold text-[var(--accent-red)]">COMPUTER SERVICES</p>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#services" class="hover:text-[var(--accent-red)]">Services</a>
+        <a href="#about" class="hover:text-[var(--accent-red)]">About</a>
+        <a href="#contact" class="hover:text-[var(--accent-red)]">Contact</a>
+        <a href="#request" class="bg-[var(--accent-red)] text-white px-4 py-2 rounded-md shadow hover:opacity-95">Request Service</a>
+      </nav>
+
+      <div class="flex items-center gap-3 text-sm">
+        <a href="tel:09062170267" class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i>09062170267</a>
+        <a href="mailto:iasuccesscomputers@gmail.com" class="hidden md:inline-flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i>iasuccesscomputers@gmail.com</a>
+        <button id="mobileMenuBtn" class="md:hidden p-2 hover:bg-gray-100 rounded"><i data-lucide="menu" class="w-6 h-6"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu"></div>
+  <nav id="mobileNav" class="mobile-nav">
+    <div class="p-6">
+      <button id="closeMobileMenu" class="mb-6 p-2"><i data-lucide="x" class="w-6 h-6"></i></button>
+      <div class="flex flex-col gap-4">
+        <a href="#services" class="text-lg font-semibold hover:text-[var(--accent-red)]">Services</a>
+        <a href="#about" class="text-lg font-semibold hover:text-[var(--accent-red)]">About</a>
+        <a href="#contact" class="text-lg font-semibold hover:text-[var(--accent-red)]">Contact</a>
+        <a href="#request" class="bg-[var(--accent-red)] text-white px-4 py-3 rounded-md font-semibold text-center">Request Service</a>
+        <hr class="my-4" />
+        <a href="tel:09062170267" class="flex items-center gap-2 font-semibold"><i data-lucide="phone" class="w-5 h-5"></i>09062170267</a>
+        <a href="mailto:iasuccesscomputers@gmail.com" class="flex items-center gap-2 font-semibold"><i data-lucide="mail" class="w-5 h-5"></i>Email us</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-wave text-white py-20">
+    <div class="container mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+        <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">
+          Reliable <span class="text-[var(--accent-red)]">Computer Services</span> & Administrative Support
+        </h2>
+        <p class="text-lg opacity-90 max-w-xl">
+          Fast typing & printing, passport photos, NIN & JAMB support, CAC registration, and practical computer training — all under one roof.
+        </p>
+
+        <div class="flex gap-4">
+          <a href="#services" class="bg-white text-[var(--primary-dark)] px-5 py-3 rounded-full font-semibold shadow hover:scale-105 transition">View Services</a>
+          <a href="#request" class="border border-white px-5 py-3 rounded-full hover:bg-white/10 transition">Request Service</a>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-6">
+          <div class="flex items-center gap-3 glass p-3 rounded-md">
+            <i data-lucide="printer" class="w-5 h-5 text-[var(--accent-red)]"></i>
+            <div class="text-sm">
+              <div class="font-semibold">Typing & Printing</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 glass p-3 rounded-md">
+            <i data-lucide="camera" class="w-5 h-5 text-[var(--accent-red)]"></i>
+            <div class="text-sm font-semibold">Passport Photos</div>
+          </div>
+
+          <div class="flex items-center gap-3 glass p-3 rounded-md">
+            <i data-lucide="file-text" class="w-5 h-5 text-[var(--accent-red)]"></i>
+            <div class="text-sm font-semibold">Registrations</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Services -->
+  <section id="services" class="py-16">
+    <div class="container mx-auto px-6">
+      <h3 class="text-3xl font-bold text-center mb-4">Our Services</h3>
+      <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">Comprehensive solutions for academic, professional and digital needs. Click a service to request it quickly.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Repeat service card -->
+        <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--accent-red)] hover:shadow-xl transition">
+          <div class="flex items-start gap-4">
+            <i data-lucide="type" class="w-8 h-8 text-[var(--accent-red)]"></i>
+            <div>
+              <h4 class="font-bold">Typing & Printing</h4>
+              <p class="text-sm text-gray-500">Fast, accurate document preparation and high-quality printing.</p>
+              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--primary-dark)] hover:shadow-xl transition">
+          <div class="flex items-start gap-4">
+            <i data-lucide="copy" class="w-8 h-8 text-[var(--primary-dark)]"></i>
+            <div>
+              <h4 class="font-bold">Photocopy</h4>
+              <p class="text-sm text-gray-500">Quick black & white and colour photocopying.</p>
+              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--accent-red)] hover:shadow-xl transition">
+          <div class="flex items-start gap-4">
+            <i data-lucide="scissors" class="w-8 h-8 text-[var(--accent-red)]"></i>
+            <div>
+              <h4 class="font-bold">Scanning & Laminating</h4>
+              <p class="text-sm text-gray-500">Digital document creation and protective lamination.</p>
+              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--primary-dark)] hover:shadow-xl transition">
+          <div class="flex items-start gap-4">
+            <i data-lucide="camera" class="w-8 h-8 text-[var(--primary-dark)]"></i>
+            <div>
+              <h4 class="font-bold">Instant Passport Photograph</h4>
+              <p class="text-sm text-gray-500">Professional instant passport-sized photos that meet specifications.</p>
+              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--accent-red)] hover:shadow-xl transition">
+          <div class="flex items-start gap-4">
+            <i data-lucide="briefcase" class="w-8 h-8 text-[var(--accent-red)]"></i>
+            <div>
+              <h4 class="font-bold">Business Registration (CAC)</h4>
+              <p class="text-sm text-gray-500">Assistance with Corporate Affairs Commission registration.</p>
+              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--primary-dark)] hover:shadow-xl transition">
+          <div class="flex items-start gap-4">
+            <i data-lucide="book-open" class="w-8 h-8 text-[var(--primary-dark)]"></i>
+            <div>
+              <h4 class="font-bold">NECO & WAEC GCE Registration</h4>
+              <p class="text-sm text-gray-500">Seamless registration for national exams and GCE.</p>
+              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--accent-red)] hover:shadow-xl transition">
+          <div class="flex items-start gap-4">
+            <i data-lucide="id" class="w-8 h-8 text-[var(--accent-red)]"></i>
+            <div>
+              <h4 class="font-bold">NIN Services</h4>
+              <p class="text-sm text-gray-500">NIN corrections, validation and reprint services.</p>
+              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--primary-dark)] hover:shadow-xl transition">
+          <div class="flex items-start gap-4">
+            <i data-lucide="award" class="w-8 h-8 text-[var(--primary-dark)]"></i>
+            <div>
+              <h4 class="font-bold">JAMB & Admissions</h4>
+              <p class="text-sm text-gray-500">End-to-end admission process support.</p>
+              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--accent-red)] hover:shadow-xl transition">
+          <div class="flex items-start gap-4">
+            <i data-lucide="globe" class="w-8 h-8 text-[var(--accent-red)]"></i>
+            <div>
+              <h4 class="font-bold">International Passport Processing</h4>
+              <p class="text-sm text-gray-500">Guidance and application support for international passports.</p>
+              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--primary-dark)] hover:shadow-xl transition">
+          <div class="flex items-start gap-4">
+            <i data-lucide="wifi" class="w-8 h-8 text-[var(--primary-dark)]"></i>
+            <div>
+              <h4 class="font-bold">Internet Related Services</h4>
+              <p class="text-sm text-gray-500">All essential internet-based services and applications.</p>
+              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--accent-red)] hover:shadow-xl transition">
+          <div class="flex items-start gap-4">
+            <i data-lucide="monitor" class="w-8 h-8 text-[var(--accent-red)]"></i>
+            <div>
+              <h4 class="font-bold">Computer Training</h4>
+              <p class="text-sm text-gray-500">Practical, hands-on computer courses for beginners and intermediate users.</p>
+              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Vision & Mission -->
+  <section id="about" class="py-14 bg-white">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <h3 class="text-2xl font-bold mb-6">Vision & Mission</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 rounded-lg shadow-sm border-l-4 border-[var(--primary-dark)]">
+          <h4 class="font-semibold">Our Vision</h4>
+          <p class="mt-2 text-gray-600 italic">“To be the leading provider of innovative, reliable, and future-ready computer services that empower businesses and individuals to thrive in the digital age.”</p>
+        </div>
+        <div class="p-6 rounded-lg shadow-sm border-l-4 border-[var(--accent-red)]">
+          <h4 class="font-semibold">Our Mission</h4>
+          <p class="mt-2 text-gray-600 italic">“To offer reliable computer services backed by expert knowledge, exceptional customer care, and a commitment to continuous improvement.”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Request form (client-side: opens mailto with filled info) -->
+  <section id="request" class="py-16">
+    <div class="container mx-auto px-6 max-w-3xl">
+      <h3 class="text-2xl font-bold mb-4">Request a Service</h3>
+      <p class="text-gray-600 mb-6">Fill this quick form and we'll get back to you. (This form opens your email client — no backend required.)</p>
+
+      <form id="serviceForm" class="grid gap-4">
+        <input required name="name" placeholder="Your name" class="p-3 rounded-md border" />
+        <input required name="phone" placeholder="Phone number" class="p-3 rounded-md border" />
+        <input name="email" placeholder="Email (optional)" class="p-3 rounded-md border" />
+        <select name="service" required class="p-3 rounded-md border">
+          <option value="">Choose a service...</option>
+          <option>Typing & Printing</option>
+          <option>Photocopy</option>
+          <option>Scanning & Laminating</option>
+          <option>Instant Passport Photograph</option>
+          <option>Business Registration (CAC)</option>
+          <option>NECO & WAEC GCE Registration</option>
+          <option>NIN Services</option>
+          <option>JAMB & Admissions</option>
+          <option>International Passport Processing</option>
+          <option>Internet Related Services</option>
+          <option>Computer Training</option>
+        </select>
+        <textarea name="details" rows="4" placeholder="Additional details (optional)" class="p-3 rounded-md border"></textarea>
+
+        <div class="flex gap-4">
+          <button type="submit" class="bg-[var(--accent-red)] text-white px-4 py-2 rounded-md font-semibold">Send Request</button>
+          <a href="tel:09062170267" class="px-4 py-2 rounded-md border flex items-center gap-2">Call: 09062170267</a>
+        </div>
+      </form>
+
+      <p id="formNote" class="text-sm text-gray-500 mt-3"></p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-12 bg-[var(--primary-dark)] text-white">
+    <div class="container mx-auto px-6 grid md:grid-cols-2 gap-6 items-center">
+      <div>
+        <h4 class="text-2xl font-bold">Get in touch</h4>
+        <p class="mt-2 text-gray-200">Phone: <a href="tel:09062170267" class="underline">09062170267</a> • 08064672781</p>
+        <p class="mt-1 text-gray-200">Email: <a href="mailto:iasuccesscomputers@gmail.com" class="underline">iasuccesscomputers@gmail.com</a></p>
+        <p class="mt-4 text-gray-200 max-w-xl">We respond quickly during business hours. Use the request form or call directly for urgent assistance.</p>
+
+        <div class="mt-6 flex gap-3">
+          <a href="#request" class="bg-white text-[var(--primary-dark)] px-4 py-2 rounded-md font-semibold">Request Service</a>
+          <a href="https://wa.me/2349062170267" target="_blank" class="border border-white px-4 py-2 rounded-md">Chat on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h5 class="font-semibold mb-3">Find us</h5>
+        <!-- Placeholder map — replace with your Google Maps embed if you have address -->
+        <div class="w-full h-48 bg-gray-100 rounded flex items-center justify-center text-gray-500">Map placeholder</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-sm text-gray-600">
+    <div class="container mx-auto px-6">
+      <p>&copy; 2025 IASUCCESS Computer Services • Designed to empower your digital world.</p>
+    </div>
+  </footer>
+
+  <script>
+    // render lucide icons
+    document.addEventListener('DOMContentLoaded', ()=>{
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+
+      // Mobile menu functionality
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileNav = document.getElementById('mobileNav');
+      const closeMobileMenu = document.getElementById('closeMobileMenu');
+
+      // Open menu
+      mobileMenuBtn.addEventListener('click', ()=>{
+        mobileMenu.classList.add('active');
+        mobileNav.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+
+      // Close menu
+      const closeMenu = ()=>{
+        mobileMenu.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      };
+
+      closeMobileMenu.addEventListener('click', closeMenu);
+      mobileMenu.addEventListener('click', closeMenu);
+
+      // Close menu when a link is clicked
+      mobileNav.querySelectorAll('a').forEach(link=>{
+        link.addEventListener('click', closeMenu);
+      });
+
+      // form submission: build mailto and open in user's mail client
+      const form = document.getElementById('serviceForm');
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const data = new FormData(form);
+        const name = data.get('name');
+        const phone = data.get('phone');
+        const email = data.get('email') || 'Not provided';
+        const service = data.get('service');
+        const details = data.get('details') || '';
+
+        const subject = encodeURIComponent(`Service Request: ${service} — ${name}`);
+        const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nService: ${service}\nDetails: ${details}`);
+
+        // open mail client
+        window.location.href = `mailto:iasuccesscomputers@gmail.com?subject=${subject}&body=${body}`;
+      });
+    });
+  </script>
+</body>
+</html>
