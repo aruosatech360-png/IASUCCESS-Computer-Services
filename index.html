@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>IASUCCESS Computer Services</title>
+  <title>IASUCCESS GLOBAL SERVICES</title>
   <meta name="description" content="IASUCCESS — Typing, Printing, Photocopy, Passport Photos, CAC, JAMB, NIN, Computer Training and more." />
   <meta name="theme-color" content="#1F2937" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -111,6 +111,11 @@
         gap: 1rem;
       }
     }
+
+    /* Slightly larger touch area on small screens */
+    @media (max-width:768px){
+      .whatsapp-fab{ right: 0.75rem; bottom: 0.75rem; width: 64px; height:64px; }
+    }
   </style>
 </head>
 <body class="antialiased text-[var(--primary-dark)] bg-[var(--bg-light)] font-sans">
@@ -119,10 +124,10 @@
   <header class="bg-white shadow sticky top-0 z-50">
     <div class="container mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <img src="Iasuccess logo.jpg" alt="IASUCCESS logo" class="w-12 h-12 rounded-md object-cover shadow-sm" />
+        <img src="Iasuccess logo.jpg" alt="IASUCCESS logo" class="w-14 h-14 rounded-md object-cover shadow-md border-2 border-[var(--accent-red)]" />
         <div>
-          <h1 class="font-extrabold text-xl" style="color:var(--primary-dark)">IASUCCESS</h1>
-          <p class="text-xs font-semibold text-[var(--accent-red)]">COMPUTER SERVICES</p>
+          <h1 class="font-black text-2xl tracking-tight" style="color:var(--primary-dark)">IASUCCESS</h1>
+          <p class="text-xs font-extrabold text-[var(--accent-red)] tracking-wide">GLOBAL SERVICES</p>
         </div>
       </div>
 
@@ -130,7 +135,7 @@
         <a href="#services" class="hover:text-[var(--accent-red)]">Services</a>
         <a href="#about" class="hover:text-[var(--accent-red)]">About</a>
         <a href="#contact" class="hover:text-[var(--accent-red)]">Contact</a>
-        <a href="#request" class="bg-[var(--accent-red)] text-white px-4 py-2 rounded-md shadow hover:opacity-95">Request Service</a>
+        <a href="request.html" class="bg-[var(--accent-red)] text-white px-4 py-2 rounded-md shadow hover:opacity-95">Request Service</a>
       </nav>
 
       <div class="flex items-center gap-3 text-sm">
@@ -150,7 +155,7 @@
         <a href="#services" class="text-lg font-semibold hover:text-[var(--accent-red)]">Services</a>
         <a href="#about" class="text-lg font-semibold hover:text-[var(--accent-red)]">About</a>
         <a href="#contact" class="text-lg font-semibold hover:text-[var(--accent-red)]">Contact</a>
-        <a href="#request" class="bg-[var(--accent-red)] text-white px-4 py-3 rounded-md font-semibold text-center">Request Service</a>
+        <a href="request.html" class="bg-[var(--accent-red)] text-white px-4 py-3 rounded-md font-semibold text-center">Request Service</a>
         <hr class="my-4" />
         <a href="tel:09062170267" class="flex items-center gap-2 font-semibold"><i data-lucide="phone" class="w-5 h-5"></i>09062170267</a>
         <a href="mailto:iasuccesscomputers@gmail.com" class="flex items-center gap-2 font-semibold"><i data-lucide="mail" class="w-5 h-5"></i>Email us</a>
@@ -170,7 +175,7 @@
 
         <div class="flex gap-4">
           <a href="#services" class="bg-white text-[var(--primary-dark)] px-5 py-3 rounded-full font-semibold shadow hover:scale-105 transition">View Services</a>
-          <a href="#request" class="border border-white px-5 py-3 rounded-full hover:bg-white/10 transition">Request Service</a>
+          <a href="request.html" class="border border-white px-5 py-3 rounded-full hover:bg-white/10 transition">Request Service</a>
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-6">
@@ -201,124 +206,134 @@
       <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">Comprehensive solutions for academic, professional and digital needs. Click a service to request it quickly.</p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Repeat service card -->
         <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--accent-red)] hover:shadow-xl transition">
+          <img src="IMG-20251127-WA0038.jpg" alt="Typing & Printing" class="w-full h-36 object-cover rounded-md mb-4" />
           <div class="flex items-start gap-4">
             <i data-lucide="type" class="w-8 h-8 text-[var(--accent-red)]"></i>
             <div>
               <h4 class="font-bold">Typing & Printing</h4>
               <p class="text-sm text-gray-500">Fast, accurate document preparation and high-quality printing.</p>
-              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+              <a href="#" data-service="Typing & Printing" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
             </div>
           </div>
         </article>
 
         <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--primary-dark)] hover:shadow-xl transition">
+          <img src="IMG-20251127-WA0040.jpg" class="w-full h-36 object-cover rounded-md mb-4" />
           <div class="flex items-start gap-4">
             <i data-lucide="copy" class="w-8 h-8 text-[var(--primary-dark)]"></i>
             <div>
               <h4 class="font-bold">Photocopy</h4>
               <p class="text-sm text-gray-500">Quick black & white and colour photocopying.</p>
-              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+              <a href="#" data-service="Photocopy" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
             </div>
           </div>
         </article>
 
         <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--accent-red)] hover:shadow-xl transition">
+          <img src="scanning and laminating.jpg" alt="Scanning & Laminating" class="w-full h-36 object-cover rounded-md mb-4" />
           <div class="flex items-start gap-4">
             <i data-lucide="scissors" class="w-8 h-8 text-[var(--accent-red)]"></i>
             <div>
               <h4 class="font-bold">Scanning & Laminating</h4>
               <p class="text-sm text-gray-500">Digital document creation and protective lamination.</p>
-              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+              <a href="#" data-service="Scanning & Laminating" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
             </div>
           </div>
         </article>
 
         <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--primary-dark)] hover:shadow-xl transition">
+          <img src="IMG-20251127-WA0037.jpg" alt="Instant Passport Photograph" class="w-full h-36 object-cover rounded-md mb-4" />
           <div class="flex items-start gap-4">
             <i data-lucide="camera" class="w-8 h-8 text-[var(--primary-dark)]"></i>
             <div>
               <h4 class="font-bold">Instant Passport Photograph</h4>
               <p class="text-sm text-gray-500">Professional instant passport-sized photos that meet specifications.</p>
-              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+              <a href="#" data-service="Instant Passport Photograph" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
             </div>
           </div>
         </article>
 
         <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--accent-red)] hover:shadow-xl transition">
+          <img src="CAC.png" alt="Business Registration (CAC)" class="w-full h-36 object-cover rounded-md mb-4" />
           <div class="flex items-start gap-4">
             <i data-lucide="briefcase" class="w-8 h-8 text-[var(--accent-red)]"></i>
             <div>
               <h4 class="font-bold">Business Registration (CAC)</h4>
               <p class="text-sm text-gray-500">Assistance with Corporate Affairs Commission registration.</p>
-              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+              <a href="#" data-service="Business Registration (CAC)" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
             </div>
           </div>
         </article>
 
         <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--primary-dark)] hover:shadow-xl transition">
+          <img src="neco-waec.png" alt="NECO & WAEC GCE Registration" class="w-full h-36 object-cover rounded-md mb-4" />
           <div class="flex items-start gap-4">
             <i data-lucide="book-open" class="w-8 h-8 text-[var(--primary-dark)]"></i>
             <div>
               <h4 class="font-bold">NECO & WAEC GCE Registration</h4>
               <p class="text-sm text-gray-500">Seamless registration for national exams and GCE.</p>
-              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+              <a href="#" data-service="NECO & WAEC GCE Registration" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
             </div>
           </div>
         </article>
 
         <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--accent-red)] hover:shadow-xl transition">
+          <img src="NIN-registration-steps.jpg" alt="NIN Services" class="w-full h-36 object-cover rounded-md mb-4" />
           <div class="flex items-start gap-4">
             <i data-lucide="id" class="w-8 h-8 text-[var(--accent-red)]"></i>
             <div>
               <h4 class="font-bold">NIN Services</h4>
               <p class="text-sm text-gray-500">NIN corrections, validation and reprint services.</p>
-              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+              <a href="#" data-service="NIN Services" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
             </div>
           </div>
         </article>
 
         <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--primary-dark)] hover:shadow-xl transition">
+          <img src="JAMB.jpeg" alt="JAMB & Admissions" class="w-full h-36 object-cover rounded-md mb-4" />
           <div class="flex items-start gap-4">
             <i data-lucide="award" class="w-8 h-8 text-[var(--primary-dark)]"></i>
             <div>
               <h4 class="font-bold">JAMB & Admissions</h4>
               <p class="text-sm text-gray-500">End-to-end admission process support.</p>
-              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+              <a href="#" data-service="JAMB & Admissions" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
             </div>
           </div>
         </article>
 
         <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--accent-red)] hover:shadow-xl transition">
+          <img src="nigerian-passports-with-naira.jpg" alt="International Passport Processing" class="w-full h-36 object-cover rounded-md mb-4" />
           <div class="flex items-start gap-4">
             <i data-lucide="globe" class="w-8 h-8 text-[var(--accent-red)]"></i>
             <div>
               <h4 class="font-bold">International Passport Processing</h4>
               <p class="text-sm text-gray-500">Guidance and application support for international passports.</p>
-              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+              <a href="#" data-service="International Passport Processing" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
             </div>
           </div>
         </article>
 
         <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--primary-dark)] hover:shadow-xl transition">
+          <img src="Internet service.jpeg" alt="Internet Related Services" class="w-full h-36 object-cover rounded-md mb-4" />
           <div class="flex items-start gap-4">
             <i data-lucide="wifi" class="w-8 h-8 text-[var(--primary-dark)]"></i>
             <div>
               <h4 class="font-bold">Internet Related Services</h4>
               <p class="text-sm text-gray-500">All essential internet-based services and applications.</p>
-              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+              <a href="#" data-service="Internet Related Services" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
             </div>
           </div>
         </article>
 
         <article class="service-card p-6 bg-white rounded-xl shadow-md border-t-4 border-[var(--accent-red)] hover:shadow-xl transition">
+          <img src="IMG-20251127-WA0035.jpg" alt="Computer Training" class="w-full h-36 object-cover rounded-md mb-4" />
           <div class="flex items-start gap-4">
             <i data-lucide="monitor" class="w-8 h-8 text-[var(--accent-red)]"></i>
             <div>
               <h4 class="font-bold">Computer Training</h4>
               <p class="text-sm text-gray-500">Practical, hands-on computer courses for beginners and intermediate users.</p>
-              <a href="#request" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
+              <a href="#" data-service="Computer Training" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Request this service →</a>
             </div>
           </div>
         </article>
@@ -344,42 +359,38 @@
     </div>
   </section>
 
-  <!-- Request form (client-side: opens mailto with filled info) -->
-  <section id="request" class="py-16">
-    <div class="container mx-auto px-6 max-w-3xl">
-      <h3 class="text-2xl font-bold mb-4">Request a Service</h3>
-      <p class="text-gray-600 mb-6">Fill this quick form and we'll get back to you. (This form opens your email client — no backend required.)</p>
-
-      <form id="serviceForm" class="grid gap-4">
-        <input required name="name" placeholder="Your name" class="p-3 rounded-md border" />
-        <input required name="phone" placeholder="Phone number" class="p-3 rounded-md border" />
-        <input name="email" placeholder="Email (optional)" class="p-3 rounded-md border" />
-        <select name="service" required class="p-3 rounded-md border">
-          <option value="">Choose a service...</option>
-          <option>Typing & Printing</option>
-          <option>Photocopy</option>
-          <option>Scanning & Laminating</option>
-          <option>Instant Passport Photograph</option>
-          <option>Business Registration (CAC)</option>
-          <option>NECO & WAEC GCE Registration</option>
-          <option>NIN Services</option>
-          <option>JAMB & Admissions</option>
-          <option>International Passport Processing</option>
-          <option>Internet Related Services</option>
-          <option>Computer Training</option>
-        </select>
-        <textarea name="details" rows="4" placeholder="Additional details (optional)" class="p-3 rounded-md border"></textarea>
-
-        <div class="flex gap-4">
-          <button type="submit" class="bg-[var(--accent-red)] text-white px-4 py-2 rounded-md font-semibold">Send Request</button>
-          <a href="tel:09062170267" class="px-4 py-2 rounded-md border flex items-center gap-2">Call: 09062170267</a>
+  <!-- Executive Director Section -->
+  <section id="executive-director" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <h3 class="text-3xl font-bold text-center mb-10">About the Executive Director</h3>
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <!-- Director Image (left on desktop, top on mobile) -->
+        <div class="flex justify-center md:justify-start">
+          <img src="Fatunmbi Isaiah Ashamu.png" alt="Fatunmbi Isaiah Ashamu, Executive Director" class="w-full max-w-xs md:max-w-sm h-auto rounded-lg shadow-lg object-contain" />
         </div>
-      </form>
-
-      <p id="formNote" class="text-sm text-gray-500 mt-3"></p>
+        <!-- Director Bio (right on desktop, bottom on mobile) -->
+        <div class="text-center md:text-left">
+          <h4 class="text-2xl font-bold text-[var(--primary-dark)]">Fatunmbi Isaiah Ashamu</h4>
+          <p id="directorIntro" class="text-gray-700 leading-relaxed mt-3">
+            Fatunmbi Isaiah Ashamu is the Executive Director of IASUCCESS Global Services, where he leads with a commitment to excellence, innovation, and integrity. A graduate of the prestigious University of Nigeria, Nsukka, he combines academic depth with hands-on expertise to drive impactful digital and computer-service solutions.
+          </p>
+          <div id="directorMore" class="text-gray-700 leading-relaxed mt-3 hidden">
+            <p>
+              With a strong passion for technology and human development, he has built a reputation for delivering reliable ICT services, empowering clients, and creating value through knowledge, professionalism, and forward-thinking leadership.
+            </p>
+            <p class="mt-2">
+              Over the years, he has demonstrated exceptional skill in problem-solving, digital service delivery, and strategic management. His dedication to quality service, continuous learning, and client satisfaction stands at the core of IASUCCESS Global Services.
+            </p>
+          </div>
+          <div class="mt-4 flex justify-center md:justify-start gap-3">
+            <button id="toggleDirectorBio" class="text-[var(--accent-red)] font-semibold">See more</button>
+            <a href="https://wa.me/2349062170267" target="_blank" class="inline-block bg-[var(--accent-red)] text-white px-4 py-2 rounded-md font-semibold hover:opacity-95 transition">Connect on WhatsApp</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-
+  
   <!-- Contact -->
   <section id="contact" class="py-12 bg-[var(--primary-dark)] text-white">
     <div class="container mx-auto px-6 grid md:grid-cols-2 gap-6 items-center">
@@ -390,15 +401,34 @@
         <p class="mt-4 text-gray-200 max-w-xl">We respond quickly during business hours. Use the request form or call directly for urgent assistance.</p>
 
         <div class="mt-6 flex gap-3">
-          <a href="#request" class="bg-white text-[var(--primary-dark)] px-4 py-2 rounded-md font-semibold">Request Service</a>
+          <a href="request.html" class="bg-white text-[var(--primary-dark)] px-4 py-2 rounded-md font-semibold">Request Service</a>
           <a href="https://wa.me/2349062170267" target="_blank" class="border border-white px-4 py-2 rounded-md">Chat on WhatsApp</a>
         </div>
       </div>
+  <script>
+    // Director bio toggle
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const toggle = document.getElementById('toggleDirectorBio');
+      const more = document.getElementById('directorMore');
+      if (!toggle || !more) return;
+      toggle.addEventListener('click', ()=>{
+        const isHidden = more.classList.contains('hidden');
+        if (isHidden) {
+          more.classList.remove('hidden');
+          toggle.textContent = 'See less';
+        } else {
+          more.classList.add('hidden');
+          toggle.textContent = 'See more';
+        }
+      });
+    });
+  </script>
 
       <div class="bg-white p-6 rounded-lg shadow">
         <h5 class="font-semibold mb-3">Find us</h5>
-        <!-- Placeholder map — replace with your Google Maps embed if you have address -->
-        <div class="w-full h-48 bg-gray-100 rounded flex items-center justify-center text-gray-500">Map placeholder</div>
+        <!-- Google Maps embed -->
+        <iframe class="w-full h-48 rounded border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.4425891899373!2d3.3566!3d6.5547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b8b8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sIASUCCESS%20Computer%20Services!5e0!3m2!1sen!2sng!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <a href="https://maps.app.goo.gl/8UKeU6fshZJL8dMo6?g_st=aw" target="_blank" class="inline-block mt-3 text-[var(--accent-red)] font-semibold">Get Directions →</a>
       </div>
     </div>
   </section>
@@ -406,7 +436,7 @@
   <!-- Footer -->
   <footer class="py-6 text-center text-sm text-gray-600">
     <div class="container mx-auto px-6">
-      <p>&copy; 2025 IASUCCESS Computer Services • Designed to empower your digital world.</p>
+      <p>&copy; 2025 IASUCCESS GLOBAL SERVICES • Designed to empower your digital world.</p>
     </div>
   </footer>
 
@@ -443,7 +473,23 @@
         link.addEventListener('click', closeMenu);
       });
 
-      // form submission: build mailto and open in user's mail client
+      // WhatsApp service request function
+      function requestServiceViaWhatsApp(serviceName) {
+        const whatsappNumber = '2349062170267';
+        const message = encodeURIComponent(`Hi IASUCCESS,\n\nI would like to request the following service:\n\n${serviceName}\n\nPlease let me know about availability and pricing.\n\nThank you!`);
+        window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+      }
+
+      // Add WhatsApp click handlers to all "Request this service" links
+      document.querySelectorAll('a[data-service]').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const serviceName = link.getAttribute('data-service');
+          requestServiceViaWhatsApp(serviceName);
+        });
+      });
+
+      // form submission: send via WhatsApp
       const form = document.getElementById('serviceForm');
       form.addEventListener('submit', (e)=>{
         e.preventDefault();
@@ -452,13 +498,15 @@
         const phone = data.get('phone');
         const email = data.get('email') || 'Not provided';
         const service = data.get('service');
-        const details = data.get('details') || '';
+        const details = data.get('details') || 'No additional details';
 
-        const subject = encodeURIComponent(`Service Request: ${service} — ${name}`);
-        const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nService: ${service}\nDetails: ${details}`);
+        const whatsappNumber = '2349062170267';
+        const message = encodeURIComponent(`Service Request\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nService: ${service}\nDetails: ${details}`);
 
-        // open mail client
-        window.location.href = `mailto:iasuccesscomputers@gmail.com?subject=${subject}&body=${body}`;
+        window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+        
+        // Reset form after sending
+        form.reset();
       });
     });
   </script>

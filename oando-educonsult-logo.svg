@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="240" viewBox="0 0 800 240" role="img" aria-labelledby="title desc">
+  <title id="title">OandO Educonsult Logo</title>
+  <desc id="desc">A clean typographic logo with two overlapping rings and the text OandO Educonsult.</desc>
+
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0" stop-color="#DC2626" />
+      <stop offset="1" stop-color="#9F7AEA" />
+    </linearGradient>
+  </defs>
+
+  <!-- background (transparent) -->
+
+  <!-- overlapping rings representing the two O's -->
+  <g transform="translate(80,60)">
+    <circle cx="80" cy="60" r="56" fill="none" stroke="url(#g1)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="0.95" />
+    <circle cx="160" cy="60" r="56" fill="none" stroke="#1F2937" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="0.95" />
+    <!-- small connector to suggest 'and' -->
+    <path d="M120 36 C125 52, 135 52, 140 36" fill="none" stroke="#1F2937" stroke-width="4" stroke-linecap="round" />
+  </g>
+
+  <!-- Main wordmark: OandO -->
+  <g transform="translate(300,80)">
+    <text x="0" y="0" font-family="Segoe UI, Roboto, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial" font-size="64" font-weight="700" fill="#1F2937">OandO</text>
+    <text x="0" y="48" font-family="Segoe UI, Roboto, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial" font-size="20" font-weight="600" fill="#9F7AEA">Educonsult</text>
+  </g>
+
+</svg>
